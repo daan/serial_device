@@ -1,0 +1,31 @@
+[project]
+name = "serial-device"
+version = "0.1.0"
+description = "helper code to deal with serial devices and line based communication"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+    "prettytable>=3.16.0",
+    "pyserial>=3.5",
+]
+
+[build-system]
+requires = ["uv_build>=0.8.11,<0.9.0"]
+build-backend = "uv_build"
+
+[tool.uv.workspace]
+members = [
+    ".",
+]
+
+[tool.uv.sources]
+serial-device = { workspace = true }
+
+[dependency-groups]
+dev = [
+    "serial-device",
+]
+
+[project.scripts]
+enumerate_ports = "serial_device:print_ports"
+enumerate_devices = "serial_device:print_devices"
