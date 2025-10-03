@@ -86,6 +86,9 @@ def enumerate_ports():
 def get_ports_with_vid(vid):
     return [p.device for p in serial.tools.list_ports.comports() if p.vid == vid]
 
+def get_port_with_serial_number(serial_number):
+    return [p.device for p in serial.tools.list_ports.comports() if p.serial_number == serial_number]
+
 
 def print_devices():
     table = prettytable.PrettyTable()
